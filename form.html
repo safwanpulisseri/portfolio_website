@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forms.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Safwan | Form</title>
+    <link href="assets/img/Sfevicone.png" rel="icon">
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" method="post" action="">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="Name" placeholder="Please Enter your Full Name">
+              <label for="lname">Email</label>
+              <input type="text" id="lname" name="Email" placeholder="Please Enter your Email ID">
+
+              <label for="country">Country</label>
+              <input type="text" id="country" name="Country" placeholder="Please Enter your Country Name">
+             
+              <label for="subject">Message</label>
+              <textarea id="subject" name="Message" placeholder="Please Enter your Message here..." style="height:170px"></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+         
+        </div>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbyzW0e0unLL-sarHbCEte4lrcYP-VvwZlPhB_5VsGCVgn9K-C5tuDuOR2w_sZuoipLidQ/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Your message has been sent. Thank you!")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
